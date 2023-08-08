@@ -4,4 +4,4 @@
    
 노션 팀 페이지 : [Notion](https://www.notion.so/df7bab012c9d41aabead43d3adc8aeb5?v=3efdecb091204417b03e56297ff8c612)
 
-IQA_PyTorch 원본 링크 : https://github.com/chaofengc/IQA-PyTorch#zap-quick-start
+IQA_PyTorch 원본 링크 : [IQA_PyTorch ](https://github.com/chaofengc/IQA-PyTorch#zap-quick-start)
