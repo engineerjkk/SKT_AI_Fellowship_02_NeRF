@@ -1,43 +1,71 @@
-import socket
-import time
+from pymycobot.mycobot import MyCobot
+from pymycobot.genre import Angle, Coord
+from pymycobot import PI_PORT, PI_BAUD
+import time 
+import pickle
+import socket 
 
-# 서버 설정
 HOST = '0.0.0.0'
 PORT = 12345
 
-# 소켓 객체 생성
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# 주소 재사용 설정
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-# IP와 PORT를 바인드
-server_socket.bind((HOST, PORT))
+server_socket.bind((HOST,PORT))
 
-# 서버 시작
 server_socket.listen()
-print("서버 시작, 포트:", PORT)
+print("START, PORT : ",PORT)
 
 client_socket, addr = server_socket.accept()
-print("연결된 클라이언트:", addr)
 
-# 초기 6 DOF 좌표
-x, y, z = 0, 0, 0
-roll, pitch, yaw = 0, 0, 0
 
+mc = MyCobot(PI_PORT,PI_BAUD)
+while mc.is_power_on() != 0:
+    mc.power_off()
+while mc.is_power_on() != 1:
+    mc.power_on()
+while mc.get_end_type() != 1:
+    mc.set_end_type(1)
+while mc.get_reference_frame() != 0:
+    mc.set_reference_frame(0)
+
+
+mc.release_all_servos()
+
+    
+with open("traj.pkl", "rb") as f:
+    trajectories = pickle.load(f)
+
+#Initial 6DoF
+x=trajectories[0][0]
+y=trajectories[0][1]
+z=trajectories[0][2]
+roll=trajectories[0][3]
+pitch=trajectories[0][4]
+yaw=trajectories[0][5]
+
+mc.send_coords(trajectories[0],30,1)
+mc.send_coords(trajectories[0],30,1)
 while True:
-    # 이 부분에서 6 DOF 좌표값을 업데이트 할 수 있습니다.
-    # 예를 들면, x += 1
+    res = mc.get_coords()
+    if res:
+        break
 
-    # 6 DOF 좌표를 문자열로 변환
-    x+=1
-    y+=1
-    message = f"{x},{y},{z},{roll},{pitch},{yaw}"
+print("To restore trajectories, press ANY key")
+input()
+
+
+for pos in trajectories:
+    mc.send_coords(pos, 20, 1)
+    # pos = pos - [-136.9, -27.9, 243.0, -87.33, -34.99, -114.91]
+    message=f"{pos[0]+23.5},{pos[1]-165.9},{pos[2]-227.7},{pos[3]+86.51},{pos[4]+40.51},{pos[5]+115.59}"
     client_socket.sendall(message.encode())
-    print("보낸 데이터:", message)
+    print("Sending data : ", message)
 
-    time.sleep(1)
+    time.sleep(0.1)
 
-# 소켓 종료
+
+print("finished process")
 client_socket.close()
 server_socket.close()
