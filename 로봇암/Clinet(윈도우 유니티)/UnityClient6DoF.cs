@@ -8,10 +8,16 @@ public class UnityClient6DoF : MonoBehaviour
     private NetworkStream stream;
     private ASCIIEncoding encoder = new ASCIIEncoding();
 
+    private Vector3 initialPosition;  // 초기 위치를 저장할 변수
+    private Vector3 initialRotation;  // 초기 회전값을 저장할 변수
+
     void Start()
     {
-        client = new TcpClient("192.168.1.196", 12345);
+        client = new TcpClient("165.194.69.75", 12345);
         stream = client.GetStream();
+
+        initialPosition = transform.position;
+        initialRotation = transform.rotation.eulerAngles;
     }
 
     void Update()
@@ -22,8 +28,8 @@ public class UnityClient6DoF : MonoBehaviour
             int bytesRead = stream.Read(data, 0, client.ReceiveBufferSize);
             string message = encoder.GetString(data, 0, bytesRead);
 
-            // Parse the 6 DOF values from the message
-            string[] coordinates = message.Split(',');
+                // Parse the 6 DOF values from the message
+                string[] coordinates = message.Split(',');
             if (coordinates.Length == 6)
             {
                 float x = float.Parse(coordinates[0].Trim());
@@ -32,10 +38,15 @@ public class UnityClient6DoF : MonoBehaviour
                 float roll = float.Parse(coordinates[3].Trim());
                 float pitch = float.Parse(coordinates[4].Trim());
                 float yaw = float.Parse(coordinates[5].Trim());
-
+                x = initialPosition.x+(x / 100.0f) +4 ;
+                y = initialPosition.y+(y / 100.0f) +3 ;
+                z = initialPosition.z+(z / 100.0f);
+                roll = initialRotation.x + (roll / 100.0f) + 10 ;
+                pitch = initialRotation.y + pitch ;
+                yaw = initialRotation.z + (yaw / 100.0f)  ;
                 // Update the camera's position and rotation
-                transform.position = new Vector3(x, y, z);
-                transform.eulerAngles = new Vector3(roll, pitch, yaw);
+                transform.position = new Vector3(-y, x, z);
+                transform.eulerAngles = new Vector3(roll, pitch, yaw); //-yaw, roll, pitch
             }
             else if (message == "MOVE_RIGHT")
             {
