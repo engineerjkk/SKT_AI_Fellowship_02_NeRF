@@ -13,11 +13,12 @@ public class UnityClient6DoF : MonoBehaviour
 
     void Start()
     {
-        client = new TcpClient("192.168.1.189", 12345);
+        client = new TcpClient("165.194.69.79", 12345);
         stream = client.GetStream();
 
         initialPosition = transform.position;
         initialRotation = transform.rotation.eulerAngles;
+
         //transform.position = new Vector3(-3.0f, 0.0f, -3.0f);
         //transform.eulerAngles = new Vector3(5.0f, 15.0f, 0.0f); //-yaw, roll, pitch
     }
@@ -29,7 +30,12 @@ public class UnityClient6DoF : MonoBehaviour
             byte[] data = new byte[client.ReceiveBufferSize];
             int bytesRead = stream.Read(data, 0, client.ReceiveBufferSize);
             string message = encoder.GetString(data, 0, bytesRead);
-
+            float initx = 0;
+            float inity = 0;
+            float initz = 4;
+            float initRx = 0;
+            float initRy = 180;
+            float initRz = 0;
             // Parse the 6 DOF values from the message
             string[] coordinates = message.Split(',');
             if (coordinates.Length == 6)
@@ -40,15 +46,15 @@ public class UnityClient6DoF : MonoBehaviour
                 float roll = float.Parse(coordinates[3].Trim());
                 float pitch = float.Parse(coordinates[4].Trim());
                 float yaw = float.Parse(coordinates[5].Trim());
-                x = initialPosition.y + (x / 100.0f) +5;
-                y = initialPosition.x + (y / 100.0f) +4;
-                z = initialPosition.z + (z / 100.0f);
-                roll = initialRotation.x + roll +10;
-                pitch = initialRotation.z + pitch;
-                yaw = initialRotation.y + yaw;
+                x =  (x / 100.0f);
+                y =  (y / 100.0f);
+                z =  (z / 100.0f);
+                roll = roll;
+                pitch =  pitch;
+                yaw =  yaw;
                 // Update the camera's position and rotation
-                transform.position = new Vector3(-y, x-5, z);
-                transform.eulerAngles = new Vector3(-roll+20, -yaw+15, pitch); //-yaw, roll, pitch
+                transform.position = new Vector3(initx+y, inity+z , initz-x );
+                transform.eulerAngles = new Vector3(initRx -roll, initRy-yaw  , initRz-pitch); //-yaw, roll, pitch //(initRx + roll , initRy + yaw , initRz+ pitch);
             }
             else if (message == "MOVE_RIGHT")
             {
