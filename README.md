@@ -22,4 +22,7 @@ LPIPS, BRISQUE 계산 코드 : IQA_PyTorch/IQA.ipynb
 - TestCameraTrajectories.py
   - 저장한 pickle 파일을 불러와 로봇암을 동작시키며, 동시에 Client인 유니티에 전송합니다.
 - socket_realTime.py
-  - 실시간으로 움직이는 카메라 궤적을 Client인 유니티에 전송합니다. 
+  - 실시간으로 움직이는 카메라 궤적을 Client인 유니티에 전송합니다.
+
+# 최종 발표 영상
+[클릭](https://youtu.be/oemOx9q-se4?si=15E88MbxjzXxh67b)
