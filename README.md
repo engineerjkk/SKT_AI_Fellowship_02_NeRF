@@ -10,7 +10,9 @@
 ![image](https://github.com/user-attachments/assets/2b094891-1068-467f-93d8-ab8ef3314142)    
 ### Virtual Production이란?  
 ![image](https://github.com/user-attachments/assets/de5f1d1d-83be-43b1-bfaf-1cc100f31345) 
-<img src="https://github.com/user-attachments/assets/de5f1d1d-83be-43b1-bfaf-1cc100f31345" title="VirtualProduction" width="290:/>
+<center class="half">
+    <img src="https://github.com/user-attachments/assets/de5f1d1d-83be-43b1-bfaf-1cc100f31345" title="VP" width="250" height="170"/> 
+          <Virtual Production>   
 
 Virtual Production은 가상의 공간을 무대로 만들어, 무대 위에 있는 사람이 마치 그 공간에 있는 것처럼 보이는 영상을 촬영할 수 있는 환경입니다.  
 뒤에 있는 LED Wall에 가상 장면을 띄워 놓고, 카메라의 움직임에 따라 자연스럽게 배경이 바뀌게 하여 무대 위의 배우가 더욱 몰입감 있게 연기할 수 있는 장점이 있습니다.  
