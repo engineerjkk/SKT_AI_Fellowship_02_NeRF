@@ -79,10 +79,11 @@ Virtual Production에서 역동적인 카메라 움직임이 있는 경우에는
 Gaussian Splatting은 plugin을 이용하여 3D 게임 엔진인 unity와 연동하여 수정 가능한 3D 배경 모델으로 변환할 수 있습니다. 이 기술을 이용하면, 학습 과정에서 발생한 노이즈를 제거할 수 있을 뿐만 아니라, 스튜디오의 사용자들 역시 새로운 소프트웨어에 적응할 필요 없이 기존에 사용하던 unity를 그대로 사용할 수 있어 편리합니다.  
 
 ![image](https://github.com/user-attachments/assets/7e84f07a-1a29-40f3-be1f-958434fd0446)  
-Gaussian Splatting을 unity로 구동하며 실시간 고화질 렌더링을 수행할 수 있다는 것을 보이기 위해 4K 울트라 와이드 모니터와 로봇암으로 Toy Virtual Production을 구성했습니다. 로봇암과 모니터가 연결된 데스크탑을 소켓 통신으로 연결하여 실시간으로 로봇암의 좌표 정보를 화면에 적용할 수 있게 하였습니다.    
-![b9789636858d1e43a442a4b2d2b6ca63dab7dd
+Gaussian Splatting을 unity로 구동하며 실시간 고화질 렌더링을 수행할 수 있다는 것을 보이기 위해 4K 울트라 와이드 모니터와 로봇암으로 Toy Virtual Production을 구성했습니다. 로봇암과 모니터가 연결된 데스크탑을 소켓 통신으로 연결하여 실시간으로 로봇암의 좌표 정보를 화면에 적용할 수 있게 하였습니다.      
+![b9789636858d1e43a442a4b2d2b6ca63dab7dd8cb6de8d790c561f3bca1cd8fc](https://github.com/user-attachments/assets/c4bb59d0-96d6-4f78-a2d3-e443ce2b6ba5)  
+손으로 카메라를 직접 움직여 촬영할 수도 있고,  
 
-![9f83a144af688fd178873a743f9ef3844f5428d74ca23dbb209634b494c78e0c](https://github.com/user-attachments/assets/608fafd8-adbf-4723-afb5-b44fb42704b5)  
+![9f83a144af688fd178873a743f9ef3844f5428d74ca23dbb209634b494c78e0c](https://github.com/user-attachments/assets/608fafd8-adbf-4723-afb5-b44fb42704b5)    
 궤적을 미리 설정해놓고 이에 따라 움직이며 촬영할 수도 있습니다. 이렇게 하여 Virtual Production에서의 활용 가능성 역시 검증할 수 있었습니다.    
 ### 연구 결과
 ![image](https://github.com/user-attachments/assets/3437a205-83bf-422d-bf95-13aa502e0929)  
@@ -100,6 +101,8 @@ Gaussian Splatting을 unity로 구동하며 실시간 고화질 렌더링을 수
 ![753f92a3d736fd6fadaa1799ffd75f5af143dde96a34af04d44e96ed94d36fbe](https://github.com/user-attachments/assets/43a3df55-ee8d-4519-93a0-65e69d5bd364)     
 
 (이번 게시물의 모든 시연 영상은 용량 제한으로 많이 압축된 점 양해 부탁드립니다.)  
+- 상단의 최종 발표 영상을 보시길 추천!
+
 ---
   
 # 로봇암
