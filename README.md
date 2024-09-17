@@ -2,7 +2,10 @@
 안녕하세요! 저희는 SKT AI Fellowship 5기의 “02. AI 기반 고화질 3D 변환 기술(NeRF:Neural Radiance Fields)” 과제에 참여하게 된 **NeRF Maverick** 팀입니다.    
 
 ### !최종 발표 영상 : [클릭](https://youtu.be/oemOx9q-se4?si=15E88MbxjzXxh67b)
-
+* [연구계획](https://devocean.sk.com/blog/techBoardDetail.do?ID=165048&boardType=techBlog&searchData=&id=&vcode=&vcodeList=)
+* [연구과정](https://devocean.sk.com/community/detail.do?ID=165263&boardType=AI_FELLOWSHIP&page=1)
+* [연구결과](https://devocean.sk.com/blog/techBoardDetail.do?page=&query=&ID=165437&boardType=writer&searchData=sonbosung&subIndex=&idList=&pnwriterID=sonbosung)
+  
 저희는 AI를 이용한 3D 변환기술인 NeRF를 Virtual Production에 상용화할 수 있는지 검증하고, 3D 데이터 생성에 대한 메뉴얼과 변환 방법을 정리하였습니다.
 
 저희가 정리한 데이터 생성 메뉴얼과 변환 방법을 이용해 3D 데이터를 생성한 결과, **기존 방법에 비해 제작 시간과 비용을 상당히 절감**할 수 있었습니다.    
